@@ -8,4 +8,6 @@ for data in question_data:
     question_bank.append(Questions(data["text"], data["answer"]))
 
 
-print(random.choice(question_bank["text"]))
+print(random.choice(question_bank))
+
+
