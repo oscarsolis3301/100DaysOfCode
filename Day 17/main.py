@@ -5,8 +5,8 @@ import random
 
 question_bank = []
 for data in question_data:
-    question_bank.append(Questions(data["text"], data["answer"]))
-
+    question = Questions(data["text"], data["answer"])
+    question_bank.append(question.text)
 
 print(random.choice(question_bank))
 
