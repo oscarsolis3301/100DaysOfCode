@@ -1,5 +1,5 @@
 import turtle
-from turtle import Turtle
+from turtle import Turtle, Screen
 import random
 
 tom = Turtle()
@@ -16,7 +16,15 @@ def random_color():
 
 heading = 90
 tom.speed("fastest")
-while True:
-    tom.setheading(heading)
-    tom.circle(100)
-    heading += 5
+
+
+def draw(size):
+    for _ in range(int(360/size)):
+        tom.color(random_color())
+        tom.circle(100)
+        tom.setheading(tom.heading() + size)
+
+
+draw(5)
+screen = Screen()
+screen.exitonclick()
