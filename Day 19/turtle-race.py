@@ -1,4 +1,5 @@
 from turtle import Turtle, Screen
+import random
 
 turtles = []
 colors = ["red", "orange", "yellow", "green", "blue", "purple"]
@@ -22,7 +23,15 @@ for i in range(5):
 
 racing = True
 while racing:
+    for turtle in turtles:
+        if turtle.xcor() > 230:
+            racing = False
+            if user_choice == turtle.pencolor():
+                print("You've won!")
+            else:
+                print(f"You've lost! The {turtle.pencolor()} was the winner")
 
-
+    for i in turtles:
+        i.forward(random.randint(0, 10))
 
 screen.exitonclick()
