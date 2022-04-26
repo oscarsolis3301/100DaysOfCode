@@ -26,7 +26,8 @@ while racing:
     for turtle in turtles:
         if turtle.xcor() > 230:
             racing = False
-            if user_choice == turtle.pencolor():
+            winner_turtle = turtle.pencolor()
+            if user_choice == winner_turtle:
                 print("You've won!")
             else:
                 print(f"You've lost! The {turtle.pencolor()} was the winner")
