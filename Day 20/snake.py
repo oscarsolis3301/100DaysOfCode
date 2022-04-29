@@ -1,5 +1,9 @@
 from turtle import Turtle
-import time
+
+UP = 90
+DOWN = 270
+LEFT = 180
+RIGHT = 0
 
 
 class Snake:
@@ -23,16 +27,29 @@ class Snake:
         self.snakes[0].forward(20)
 
     def up(self):
-        self.snakes[0].setheading(90)
+        if self.snakes[0].heading() == DOWN:
+            pass
+        else:
+            self.snakes[0].setheading(UP)
 
     def down(self):
-        self.snakes[0].setheading(270)
+        if self.snakes[0].heading() == UP:
+            pass
+        else:
+            self.snakes[0].setheading(DOWN)
 
     def left(self):
-        self.snakes[0].setheading(180)
+        if self.snakes[0].heading() == RIGHT:
+            pass
+        else:
+            self.snakes[0].setheading(LEFT)
 
     def right(self):
-        self.snakes[0].setheading(0)
+        if self.snakes[0].heading() == LEFT:
+            pass
+        else:
+            self.snakes[0].setheading(RIGHT)
+
 
 
     #     self.create_snake()
