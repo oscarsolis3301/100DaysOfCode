@@ -1,6 +1,6 @@
 from turtle import Turtle
 ALIGNMENT = "center"
-FONT = ("times new roman", 8, "bold")
+FONT = ("courier", 24, "bold")
 
 
 class Scoreboard(Turtle):
@@ -9,18 +9,19 @@ class Scoreboard(Turtle):
         self.pencolor("white")
         self.hideturtle()
         self.up()
-        self.goto(0, 280)
-        self.write("Score: ", align=ALIGNMENT, font=FONT)
-        self.score = Turtle()
-        self.points = 0
-        self.score.up()
-        self.score.color("white")
-        self.score.goto(20, 278)
-        self.score.hideturtle()
-        self.score.write(self.points)
+        self.goto(0, 260)
+        self.score = 0
+        self.display_score()
+
+    def display_score(self):
+        self.write(f"Score: {self.score}", align=ALIGNMENT, font=FONT)
 
     def add_point(self):
-        self.points = self.points + 1
-        self.score.clear()
-        self.score.write(self.points)
+        self.score += 1
+        self.clear()
+        self.display_score()
+
+    def game_over(self):
+        self.goto(0, 0)
+        self.write("GAME OVER", align=ALIGNMENT, font=FONT)
 

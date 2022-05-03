@@ -31,3 +31,10 @@ while running:
     if snake.snakes[0].distance(food) < 15:
         food.refresh()
         scoreboard.add_point()
+
+    if snake.snakes[0].xcor() > 280 or snake.snakes[0].xcor() < -280 or snake.snakes[0].ycor() > 280 or \
+            snake.snakes[0].ycor() < -280:
+        scoreboard.game_over()
+        running = False
+
+screen.exitonclick()
