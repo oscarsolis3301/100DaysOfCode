@@ -21,7 +21,6 @@ screen.onkey(snake.down, "Down")
 screen.onkey(snake.left, "Left")
 screen.onkey(snake.right, "Right")
 
-
 running = True
 while running:
     screen.update()
@@ -31,10 +30,15 @@ while running:
     if snake.snakes[0].distance(food) < 15:
         food.refresh()
         scoreboard.add_point()
+        snake.extend()
 
     if snake.snakes[0].xcor() > 280 or snake.snakes[0].xcor() < -280 or snake.snakes[0].ycor() > 280 or \
             snake.snakes[0].ycor() < -280:
         scoreboard.game_over()
         running = False
 
+    for pieces in snake.snakes[:1]:
+        if snake.head.distance(pieces) < 10:
+            running = False
+            scoreboard.game_over()
 screen.exitonclick()

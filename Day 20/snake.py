@@ -9,14 +9,33 @@ RIGHT = 0
 class Snake:
     def __init__(self):
         self.snakes = []
-        last_location = 0
+        self.last_location = 0
+        self.start()
+        self.head = self.snakes[-1]
+
+    def start(self):
         for i in range(3):
             new_turtle = Turtle(shape="square")
+            new_turtle.speed("fastest")
             new_turtle.color("white")
             new_turtle.up()
-            new_turtle.goto(last_location, 0)
             self.snakes.append(new_turtle)
-            last_location = new_turtle.xcor() - 20
+            self.new_turtle_locations(new_turtle)
+
+    def new_turtle_locations(self, turtle):
+        turtle.goto(self.last_location, 0)
+        self.last_location = turtle.xcor() - 20
+
+    def create(self):
+        new_turtle = Turtle(shape="square")
+        new_turtle.speed("fastest")
+        new_turtle.color("white")
+        new_turtle.up()
+        new_turtle.goto(self.snakes[0].xcor(), self.snakes[0].ycor())
+        self.snakes.append(new_turtle)
+
+    def extend(self):
+        self.create()
 
     def move(self):
         for squares in range(len(self.snakes) - 1, 0, -1):
@@ -49,8 +68,6 @@ class Snake:
             pass
         else:
             self.snakes[0].setheading(RIGHT)
-
-
 
     #     self.create_snake()
     #
