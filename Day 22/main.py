@@ -6,12 +6,16 @@ from turtle import Screen
 screen = Screen()
 screen.setup(width=800, height=600)
 screen.tracer(0)
-main_paddle = Character()
+r_paddle = Character((350, 0))
+l_paddle = Character((-350, 0))
 
 screen.bgcolor("black")
 screen.update()
-screen.onkeypress(main_paddle.move_up, "Up")
-screen.onkeypress(main_paddle.move_down, "Down")
+screen.onkeypress(r_paddle.move_up, "Up")
+screen.onkeypress(r_paddle.move_down, "Down")
+
+screen.onkeypress(l_paddle.move_up, "w")
+screen.onkeypress(l_paddle.move_down, "s")
 
 
 screen.listen()
