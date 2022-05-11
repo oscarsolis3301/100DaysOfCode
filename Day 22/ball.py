@@ -20,12 +20,18 @@ class Ball(Turtle):
 
     def move(self):
         if not self.touched_top:
-            if self.ycor() != 260 and self.xcor() != 360:
+            if self.ycor() != 280 and -360 < self.xcor() <= 360:
+                print("First if satement")
                 self.move_up()
-            elif self.ycor() == 260 and self.xcor() != 360:
+            elif self.ycor() == 280 and -360 < self.xcor() <= 360:
+                print("Second if")
                 self.touched_top = True
+            else:
+                print("else.1 statement")
         else:
-            if self.ycor() != -260:
+            if self.ycor() != -280 and -360 < self.xcor() <= 360:
                 self.move_down()
-            elif self.ycor() == -260:
+            elif self.ycor() == -280 and -360 < self.xcor() <= 360:
                 self.touched_top = False
+            else:
+                print("else.2 statement")
