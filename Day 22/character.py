@@ -13,13 +13,11 @@ class Character(Turtle):
         self.shapesize(stretch_len=5)
         self.shape("square")
         self.color("white")
-        print(f"currently at: {self.ycor()}")
 
     def move_up(self):
         if 240 > self.ycor() >= -240:
             self.forward(20)
             print(f"currently at: {self.ycor()}")
-            self.screen.update()
         else:
             pass
 
@@ -27,6 +25,5 @@ class Character(Turtle):
         if 240 >= self.ycor() > -240:
             self.backward(20)
             print(f"currently at: {self.ycor()}")
-            self.screen.update()
         else:
             pass
