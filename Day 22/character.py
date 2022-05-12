@@ -17,13 +17,11 @@ class Character(Turtle):
     def move_up(self):
         if 240 > self.ycor() >= -240:
             self.forward(20)
-            print(f"currently at: {self.ycor()}")
         else:
             pass
 
     def move_down(self):
         if 240 >= self.ycor() > -240:
             self.backward(20)
-            print(f"currently at: {self.ycor()}")
         else:
             pass
