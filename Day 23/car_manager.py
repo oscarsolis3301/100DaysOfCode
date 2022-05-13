@@ -15,11 +15,7 @@ class CarManager(Turtle):
         self.color(random_color)
         self.setheading(180)
         self.up()
-        self.goto((random.randint(330, 1000)), (random.randint(-300, 300)))
+        self.goto((random.randint(330, 1000)), (random.randint(-250, 250)))
 
     def move(self):
         self.forward(STARTING_MOVE_DISTANCE)
-
-
-
-
