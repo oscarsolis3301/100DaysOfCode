@@ -3,7 +3,6 @@ from turtle import Screen
 from player import Player
 from car_manager import CarManager
 from scoreboard import Scoreboard
-import random
 
 screen = Screen()
 screen.setup(width=600, height=600)
@@ -29,9 +28,11 @@ def game_over():
     return False
 
 
+# Main game loop
 while playing:
     time.sleep(speed)
     screen.update()
+    # Starts the first few cars
     if 0 <= len(cars) < car_amount:
         for i in range(10):
             car = CarManager()
@@ -50,21 +51,5 @@ while playing:
     if user.ycor() == 280:
         user.home()
         scoreboard.level_up()
-        speed -= (speed / 2)
+        speed -= (speed / 1.2)
         car_amount += (car_amount / 2)
-
-    # if len(cars) == 0:
-    #     car = CarManager()
-    #     if car.xcor() != 320:
-    #         car.move()
-    # else:
-    # #         cars.pop(x)
-    # elif len(cars)  :
-    #     for i in range(len(cars)):
-    #         cars[i].move()
-    # #
-    # if cars[x].xcor() == 150:
-    #     cars.pop(x)
-    #     x += 1
-    #     car = CarManager()
-    #     cars.append(car)
