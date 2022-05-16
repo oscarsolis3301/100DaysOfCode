@@ -13,6 +13,12 @@ class Snake:
         self.start()
         self.head = self.snakes[-1]
 
+    def delete(self):
+        for x in self.snakes:
+            x.goto(1000, 1000)
+        self.snakes.clear()
+        self.start()
+
     def start(self):
         for i in range(3):
             new_turtle = Turtle(shape="square")
@@ -31,8 +37,8 @@ class Snake:
         new_turtle.speed("fastest")
         new_turtle.color("white")
         new_turtle.up()
-        new_turtle.goto(self.snakes[0].xcor(), self.snakes[0].ycor())
         self.snakes.append(new_turtle)
+        new_turtle.goto(self.snakes[0].xcor(), self.snakes[0].ycor())
 
     def extend(self):
         self.create()

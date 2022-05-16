@@ -40,7 +40,7 @@ while playing:
 
     for x in range(len(cars)):
         cars[x].move()
-        if user.distance(cars[x]) <= 35:
+        if user.distance(cars[x]) <= 30:
             playing = game_over()
 
         if cars[x].xcor() <= -350:

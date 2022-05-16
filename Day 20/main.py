@@ -34,11 +34,10 @@ while running:
 
     if snake.snakes[0].xcor() > 280 or snake.snakes[0].xcor() < -280 or snake.snakes[0].ycor() > 280 or \
             snake.snakes[0].ycor() < -280:
+        snake.delete()
         scoreboard.game_over()
-        running = False
 
     for pieces in snake.snakes[:1]:
         if snake.head.distance(pieces) < 10:
-            running = False
-            scoreboard.game_over()
+            snake.delete()
 screen.exitonclick()
