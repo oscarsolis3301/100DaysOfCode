@@ -33,11 +33,7 @@ while playing:
         elif user_guess.title() in correct_guesses:
             pass
 
-did_not_guess = ["States Not Guessed"]
-for state in states:
-    if state not in correct_guesses:
-        did_not_guess.append(state)
-
+did_not_guess = [state for state in states if state not in correct_guesses]
 print(did_not_guess)
 
 db = pandas.Series(did_not_guess)
