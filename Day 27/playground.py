@@ -5,4 +5,5 @@ def add(*args):
 
     print(f"The total is: {total}")
 
+
 add(1, 2, 3, 4, 5, 6, 7)

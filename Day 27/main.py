@@ -2,6 +2,7 @@ from tkinter import *
 
 window = Tk()
 window.minsize(width=500, height=500)
+window.config(padx=200, pady=200)
 
 label = Label(text="New Text")
 label.grid(column=0, row=0)
