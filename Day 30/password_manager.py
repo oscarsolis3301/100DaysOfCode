@@ -40,6 +40,26 @@ def save_password():
             website_entry.delete(0, END)
             password_entry.delete(0, END)
 # ---------------------------- UI SETUP ------------------------------- #
+
+def Search():
+    try:
+        with open('data.json', 'r') as data:
+            file_data = json.load(data)
+            found = False
+            for websites in file_data:
+                if websites == website_entry.get():
+                    print("If loop")
+                    found = True
+                else:
+                    print("Else loop")
+                    continue
+
+            if found:
+                print("Website entered was found.")
+    except FileNotFoundError:
+        print("File was not found please try again")
+
+
 win = Tk()
 
 win.title("Password Manager")
@@ -52,21 +72,24 @@ canvas.grid(row=0, column=1)
 website_label = Label(text="Website:")
 website_label.grid(row=1, column=0)
 
-website_entry = Entry(width=52)
-website_entry.grid(row=1, column=1, columnspan=2, pady=5)
+website_entry = Entry(width=40)
+website_entry.grid(row=1, column=1)
 website_entry.focus()
+
+search_button = Button(text="Search", width=15, command=Search)
+search_button.grid(row=1, column=2)
 
 email = Label(text="Email/Username:")
 email.grid(row=2, column=0)
 
-email_entry = Entry(width=52)
-email_entry.grid(row=2, column=1, columnspan=2, pady=5)
+email_entry = Entry(width=59)
+email_entry.grid(row=2, column=1, pady=5, columnspan=2)
 email_entry.insert(0, "venzeti@gmail.com")
 
 password = Label(text="Password:")
 password.grid(row=3, column=0)
 
-password_entry = Entry(width=33)
+password_entry = Entry(width=40)
 password_entry.grid(row=3, column=1, pady=5)
 
 generate_button = Button(text="Generate Password", width=15, command=generate)
