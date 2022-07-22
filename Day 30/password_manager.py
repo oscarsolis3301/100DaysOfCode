@@ -28,11 +28,13 @@ def save_password():
         try:
             with open('data.json', 'r') as data:
                 file_data = json.load(data)
-                file_data.update(file_data)
+
         except FileNotFoundError:
             with open('data.json', 'w') as data:
                 json.dump(new_data, data, indent=4)
         else:
+            file_data.update(new_data)
+
             with open('data.json', 'w') as data:
                 json.dump(file_data, data, indent=4)
 
@@ -48,16 +50,19 @@ def Search():
             found = False
             for websites in file_data:
                 if websites == website_entry.get():
-                    print("If loop")
                     found = True
                 else:
-                    print("Else loop")
                     continue
 
             if found:
-                print("Website entered was found.")
+                messagebox.showinfo(title=f"{website_entry.get()}",
+                                    message=f"Email: {file_data[website_entry.get()]['email']}"
+                                            f"\nPassword: {file_data[website_entry.get()]['password']}")
+            else:
+                messagebox.showinfo(title=f"{website_entry.get()}", message="The website entered was not found.")
+
     except FileNotFoundError:
-        print("File was not found please try again")
+        messagebox.showinfo(title="Error", message="No Data File Was Found.")
 
 
 win = Tk()
