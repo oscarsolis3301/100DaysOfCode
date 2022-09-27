@@ -1,3 +1,7 @@
 import requests
 
-response = requests.get(url='')
+param = {
+    "lat":
+}
+
+response = requests.get(url='https://api.openweathermap.org/data/2.5/onecall?')
