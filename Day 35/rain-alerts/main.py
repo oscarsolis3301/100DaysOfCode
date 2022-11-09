@@ -23,7 +23,7 @@ param = {
 response = requests.get(url='https://api.openweathermap.org/data/2.5/onecall?', params=param)
 response.raise_for_status()
 weather = response.json()
-#print(response.url)
+print(response.url)
 list_of_weather = (weather["hourly"][0:12])
 first_12_hours = []
 for x in list_of_weather:
@@ -31,3 +31,4 @@ for x in list_of_weather:
 
 for x in first_12_hours:
     if x == 801:
+        print('')
