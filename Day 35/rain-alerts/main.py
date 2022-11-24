@@ -1,4 +1,5 @@
 import requests
+import creds
 from twilio.rest import Client
 
 # params = {
@@ -30,10 +31,8 @@ for hour in list_of_weather:
     if hour['weather'][0]['id'] < 700:
         will_rain = True
 
-account_sid = "ACde37ac0c708218fe613b664bfc7f6003"
-auth_token = "df8a75478f0ca87b808e3510260f944f"
 
-client = Client(account_sid, auth_token)
+client = Client(creds.account_sid, creds.auth_token)
 
 if will_rain:
     message = client.messages \
