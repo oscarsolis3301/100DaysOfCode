@@ -31,7 +31,6 @@ for hour in list_of_weather:
     if hour['weather'][0]['id'] < 700:
         will_rain = True
 
-
 client = Client(creds.account_sid, creds.auth_token)
 
 if will_rain:
@@ -39,8 +38,9 @@ if will_rain:
         .create(
         body="It's going to rain today. Don't forget your umbrella.",
         from_='+13022087105',
-        to='+19498423049'
+        to=f'+1{creds.phone_number}'
     )
+
     print(message.status)
 else:
     print('It will not be raining in your area')
