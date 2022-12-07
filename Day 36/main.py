@@ -70,10 +70,9 @@ def send_message(change):
                 to=f'{MY_PHONE_NUMBER}'
             )
         else:
-            print(f'The percent change is {percent_change}. No message sent.')
+            print(f'There has not been any major change.')
             message = client.messages.create(
-                body=f"{STOCK_NAME}: 😬{percent_change}%\nHeadline: {articles[index]['title']}."
-                     f"\nBrief: {articles[0]['description']}",
+                body=f"{STOCK_NAME}: 😬No major changes.",
                 from_=f'{TWILIO_PHONE_NUMBER}',
                 to=f'{MY_PHONE_NUMBER}'
             )
