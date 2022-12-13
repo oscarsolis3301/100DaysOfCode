@@ -5,8 +5,8 @@ USERNAME = 'venzeti'
 TOKEN = 'jfsdlkjfdsfa3301faufh'
 pixela_endpoint = 'https://pixe.la/v1/users'
 
-today = f'{datetime.now().strftime("%Y%m%d")}'
-
+# today = f'{datetime.now().strftime("%Y%m%d")}'
+today = datetime.now()
 pixela_params = {
     'token': f'{TOKEN}',
     'username': f'{USERNAME}',
@@ -30,7 +30,7 @@ graph_config = {
 headers = {
     "X-USER-TOKEN": TOKEN
 }
-
+#
 # response = requests.post(url=graph_endpoint, json=graph_config, headers=headers)
 # print(response.text)
 
@@ -41,8 +41,16 @@ post_config = {
     'quantity': '10'
 }
 
-put_endpoint = f'{post_endpoint}/{today}'
-response = requests.put(url=post_endpoint, headers=headers, )
-print(response.text)
+put_endpoint = f'{post_endpoint}/{today.strftime("%Y%m%d")}'
+
+put_content = {
+    'quantity': '100'
+}
+
+r = requests.put(url=put_endpoint, json=put_content, headers=headers)
+
+print(r.raise_for_status)
+print(r.text)
+print(put_endpoint)
 # response = requests.post(url=post_endpoint, headers=headers, json=post_config)
 # print(response.text)
