@@ -43,14 +43,18 @@ post_config = {
 
 put_endpoint = f'{post_endpoint}/{today.strftime("%Y%m%d")}'
 
+delete_url = f'{post_endpoint}/20221212'
+
 put_content = {
     'quantity': '100'
 }
 
-r = requests.put(url=put_endpoint, json=put_content, headers=headers)
+# r = requests.put(url=put_endpoint, json=put_content, headers=headers)
 
-print(r.raise_for_status)
-print(r.text)
-print(put_endpoint)
+
+delete_pixel = requests.delete(url=delete_url, headers=headers, )
+print(delete_pixel.raise_for_status)
+print(delete_pixel.text)
+print(delete_url)
 # response = requests.post(url=post_endpoint, headers=headers, json=post_config)
 # print(response.text)
