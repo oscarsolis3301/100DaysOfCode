@@ -3,7 +3,7 @@ from art import *
 
 running = True
 
-def game_logic(user, computer, u_score, c_score):
+def game_logic(user, computer):
     if (user == computer):
         print("\nTIE GAME")
     elif (user_choice == 0 and computer == 1):
