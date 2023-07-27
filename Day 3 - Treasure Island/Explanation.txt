@@ -1,0 +1,5 @@
+This project was completed with professor.
+
+Here is a link to the repl.it that was followed along:
+
+https://replit.com/@venzeti/treasure-island-end
