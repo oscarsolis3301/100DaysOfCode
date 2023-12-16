@@ -70,9 +70,14 @@ DECK = [11, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10]
 def check_winner(user_score, computer_score):
     if 0 < user_score < 22 and 0 < computer_score < 22:
         if user_score > computer_score:
-            print("You win!")
-        else:
+            print(f"Your score: {user_score} | Computer score: {computer_score}")
+            print("You win 😁")
+        elif computer_score > user_score:
+            print(f"Your score: {user_score} | Computer score: {computer_score}")
             print("You lost.")
+        elif user_score == computer_score:
+            print(f"Your final score: {user_score} | Final computer score: {computer_score}")
+            print("Draw 🙃")
     elif computer_score > 21:
         print("Opponent went over. You win!")
 
@@ -98,7 +103,6 @@ while True:
         print("Thank you for joining us.")
         break
     else:
-
         while u_score < 22 and c_score < 22:
             print(logo)
             print(f"Your cards: {user_deck}, current score: {u_score}")
@@ -106,15 +110,21 @@ while True:
 
             if input("Type 'y' to get another card, type 'n' to pass: ").lower() != 'y':
                 check_winner(u_score, c_score)
+                break
             else:
                 user_deck.append(random.choice(DECK))
                 computer_deck.append(random.choice(DECK))
 
                 u_score = sum(user_deck)
                 c_score = sum(computer_deck)
-        if u_score > 21:
+        if u_score > 21 > c_score:
+            i = 0
+            for value in user_deck:
+                if value == 11:
+                    user_deck[i] = 1
+                i += 1
             print(f"You went over. You lose. Your score: {u_score} | Computer's score: {c_score}")
-        else:
+        elif c_score > 21 > u_score:
             print(f"The computer went over. You win! Your score: {u_score} | Computer's score: {c_score}")
 # print(logo)
 # user_total = 0
